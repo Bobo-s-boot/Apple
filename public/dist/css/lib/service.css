@@ -1,0 +1,50 @@
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.section__content {
+  max-width: 1200px;
+  width: 100%;
+}
+@media all and (width < 1440px) {
+  .section__content {
+    max-width: 1100px;
+  }
+}
+@media all and (width < 1260px) {
+  .section__content {
+    max-width: 900px;
+  }
+}
+@media all and (width < 1000px) {
+  .section__content {
+    max-width: 700px;
+  }
+}
+@media all and (width < 620px) {
+  .section__content {
+    max-width: 500px;
+  }
+}
+
+.section__double {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-size: cover;
+}
+@media all and (width < 1260px) {
+  .section__double {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*# sourceMappingURL=service.css.map */

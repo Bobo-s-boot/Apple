@@ -1,0 +1,231 @@
+@use "../../lib/service.scss" as s;
+
+.header__content {
+  @extend .section__content;
+
+  display: flex;
+  padding: s.space(4) 0;
+  justify-content: space-between;
+}
+
+.header {
+ @extend .section;
+ background-color: s.color("backgroundDark");
+}
+
+.ad__content {
+ @extend .section2;
+ background-color:s.color("backgroundWhite");
+}
+
+.ad {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: s.space(3) 0;
+  gap: s.space(5);
+}
+
+.ad__title-link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: s.space(5);
+}
+
+.ad__title {
+ color: s.color("fontDark")
+}
+
+.ad__link {
+ color: s.color("primary")
+}
+
+.footer {
+ @extend .section;
+ background-color: s.color('background');
+ padding: s.space(10);
+ gap:140px;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns:repeat(1,1fr);
+  grid-template-rows: 1fr;
+  gap: s.space(4);
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  gap: 12px;
+}
+
+.header__block {
+ display: flex;
+ gap: s.space(8);
+ align-items: center
+}
+
+.header__icon {
+  @include s.click;
+}
+
+.header__link {
+  color: s.color("whiteLight");
+
+  @include s.click;
+}
+
+.header__link {
+  font-size: s.size("small");
+}
+
+.product {
+ @extend .section;
+ padding-top: s.space(20);
+ padding-bottom: s.space(20);
+}
+
+.product__content {
+ display: grid;
+ gap: s.space(5);
+ text-align: center;
+ align-content: center;
+}
+
+.product__title {
+ font-size: 56px;
+ font-weight: 600;
+ color: s.color("fontDark");
+}
+
+.product__description {
+  font-size: 28px;
+}
+
+.footer__description {
+  font-size: 12px;
+  color: s.color("fontDark");
+  font-weight: 600;
+  line-height: 12px;
+  display: flex;
+}
+
+.footer__links {
+  color: #424245;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.product__action {
+ display: flex;
+ align-items: center;
+ gap: s.space(5);
+ justify-content: center;
+
+ @include s.click;
+}
+
+.product__link {
+  @include s.linkAction;
+}
+
+.product-big {
+ max-height: 700px;
+ height: 100vh;
+
+ background-size: cover;
+
+ @media all and (width < s.screen("tablet")) {
+  background-size: 150%;
+
+  max-height: 500px;
+ }
+}
+
+.product-small{
+    max-height: 580px;
+    height: 100vh;
+   
+    background-size: cover;
+   
+    @media all and (width < s.screen("tablet")) {
+     background-size: 150%;
+   
+     max-height: 500px;
+    }
+   }
+
+.product--iphone-pro {
+ background-image: url("/img/iphone.png");
+}
+
+.product--watch {
+ background-image:url("/img/watch.png") ;
+}
+
+.product--dark {
+ .product__title, .product__description {
+   color: s.color('background');
+ }
+ 
+ background-color: #000;
+}
+
+.product--top {
+  .product__content {
+    align-content: flex-start;
+  }
+}
+
+.product--bottom {
+ .product__content {
+  align-content: flex-end;
+ }
+}
+
+.product--light {
+    .product__title, .product__description {
+      color: s.color("fontDark");
+    }
+  background-color: #fafafa;
+}
+
+.product--iphone {
+  background-image: url("/img/iphone-st.png");
+}
+
+$productImage: (
+ "iphone-pro" "/img/iphone.png" #000,
+ "iphone" "/img/iphone-st.png" #fafafa,
+ "iwatch" "/img/watch.png" #000,
+ "trade-in" "/img/trade-in.png" #fbfbfd,
+ "conference" "/img/conference.png" #000,
+ "ipad" "/img/ipad2.png" #fbfbfd,
+ "small_business" "/img/UX2.png" #000,
+ "gift" "/img/airpods2.png" #fbfbfd,
+ "card" "/img/creditcard2.png" #fbfbfd,
+);
+
+@each $class, $url, $color in $productImage {
+ .product--#{$class} { 
+  background-image: url(#{$url});
+  background-color: $color;
+ }
+}
+
+.product-small {
+
+ .product-small {
+   font-size: 40px;
+ }
+
+ .product__description {
+    font-size: 20px;
+ }
+}
